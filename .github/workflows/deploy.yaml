@@ -1,0 +1,42 @@
+name: Deploy
+on:
+  workflow_call:
+    inputs:
+      version:
+        type: string
+    secrets:
+      NODE_AUTH_TOKEN:
+        required: true
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    env:
+      IMAGE_VERSION: ${{ inputs.version }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - run: echo ${{ secrets.NODE_AUTH_TOKEN }}
+      - name: Set up Node
+        uses: 'actions/setup-node@v3'
+        with:
+          node-version: '18.13.0'
+          registry-url: 'https://registry.npmjs.org/'
+          always-auth: true
+      - name: Set Version
+        if: ${{ inputs.version != null }}
+        run: npm version "${IMAGE_VERSION:-$GITHUB_SHA}" --allow-same-version --no-git-tag-version
+      - name: Install
+        run: npm ci
+      - name: Lint
+        run: npm run lint
+      - name: Test
+        run: npm run test
+      - name: Build
+        run: npm run build
+      - name: Publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
+        if: ${{ inputs.version != null }}
+        run: npm publish
