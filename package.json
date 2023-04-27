@@ -12,7 +12,7 @@
     "package.json"
   ],
   "scripts": {
-    "build": "tsc -p tsconfig.build.json",
+    "build": "tsc -p tsconfig.build.json; cp -r ./public/* ./dist/",
     "watch": "tsc -p tsconfig.build.json -w",
     "lint": "eslint ./src",
     "test": "jest"
