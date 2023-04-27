@@ -1,0 +1,35 @@
+.ropi-modal-overlay {
+    background-color: rgb(51 65 85 / 0.75);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 50;
+    width: 100%;
+    padding: 1rem;
+    overflow-x: hidden;
+    inset: 0;
+    margin: 0!important;
+}
+
+.ropi-modal-window {
+    position: relative;
+    top: 10rem;
+    bottom: 10rem;
+    width: 40rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ropi-modal-content {
+    border-radius: 0.5rem;
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000);
+    background-color: rgb(55 65 81);
+}
+
+.ropi-modal-skeleton {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    padding: 1rem;
+    border-bottom: solid 1px ;
+}

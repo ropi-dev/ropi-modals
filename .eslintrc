@@ -12,7 +12,8 @@
         "plugin:react/jsx-runtime"
     ],
     "rules": {
-        "react/jsx-indent-props": ["warn", "first"]
+        "react/jsx-indent-props": ["warn", "first"],
+        "no-empty-function": "off"
         //"indent": ["warn", 4]
     }
 }
