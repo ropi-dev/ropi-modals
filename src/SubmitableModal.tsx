@@ -4,7 +4,7 @@ import {TitleBar} from "./TitleBar.js";
 
 export interface SubmittableModalProps {
     title: string,
-    disabled: boolean,
+    disabled?: boolean,
     onSubmit?: () => unknown,
     children: React.ReactNode
 }
@@ -18,7 +18,7 @@ export const SubmittableModal: React.FC<SubmittableModalProps & ModalProps> = (p
             <div className="ropi-modal-body">{props.children}</div>
             <div className="ropi-modal-footer">
                 <button className="ropi-modal-cancel" onClick={() => onClose()}>Cancel</button>
-                <button className="ropi-modal-submit" disabled={props.disabled} onClick={() => onSubmit()}>Submit</button>
+                <button className="ropi-modal-submit" disabled={props.disabled || false} onClick={() => onSubmit()}>Submit</button>
             </div>
         </>
     }</Modal>;
