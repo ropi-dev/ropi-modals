@@ -18,7 +18,12 @@ export const SubmittableModal: React.FC<SubmittableModalProps & ModalProps> = (p
             <div className="ropi-modal-body">{props.children}</div>
             <div className="ropi-modal-footer">
                 <button className="ropi-modal-cancel" onClick={() => onClose()}>Cancel</button>
-                <button className="ropi-modal-submit" disabled={props.disabled || false} onClick={() => onSubmit()}>Submit</button>
+                <button className="ropi-modal-submit" disabled={props.disabled} onClick={() => {
+                    if(!props.disabled) {
+                        onSubmit();
+                        onClose();
+                    }
+                }}>Submit</button>
             </div>
         </>
     }</Modal>;
