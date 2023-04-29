@@ -81,7 +81,7 @@
     background-color: #64748b;
 }
 
-.ropi-modal-footer button.ropi-modal-cancel:hover:not([disabled]) {
+.ropi-modal-footer button.ropi-modal-cancel:hover {
     background-color: #94a3b8;
 }
 
@@ -89,6 +89,10 @@
     background-color: #22c55e;
 }
 
-.ropi-modal-footer button.ropi-modal-submit:hover {
+.ropi-modal-footer button.ropi-modal-submit:hover:not([disabled]) {
     background-color: #4ade80;
+}
+
+.ropi-modal-footer button.ropi-modal-submit:disabled {
+    background-color: #dcfce7aa;
 }
