@@ -39,7 +39,7 @@
 
 .ropi-modal-title {
     display: flex;
-    align-items: start;
+    align-items: flex-start;
     justify-content: space-between;
     padding: 1.5rem;
     border-bottom: solid 1px #cbd5e1;
